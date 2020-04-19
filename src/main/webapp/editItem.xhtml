@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <p:panel id="panel" header="New User">
+
+            <p:messages id="msgs" />
+
+            <h:panelGrid columns="3" cellpadding="5">
+                <p:outputLabel for="name" value="Name:" />
+                <p:inputText id="name" value="#{editItemView.name}" required="true" label="name">
+                    <f:validator validatorId="itemValidator" />
+                    <p:ajax update="name" event="keyup" />
+                </p:inputText>
+                <p:message for="name" id="msgname" display="icon" />
+
+                <p:outputLabel for="quantity" value="Quantity:" />
+                <p:inputText id="quantity" value="#{editItemView.quantity}" label="quantity" required="true">
+                    <p:ajax update="msgquantity" event="keyup" />
+                </p:inputText>
+                <p:message for="quantity" id="msgquantity" display="icon" />
+
+                <p:outputLabel for="price" value="Price:" />
+                <p:inputText id="price" value="#{editItemView.price}" required="true" label="price">
+                    <f:validateLength minimum="5" />
+                    <p:ajax update="price" event="keyup" />
+                </p:inputText>
+                <p:message for="price" id="msgprice" display="icon" />
+
+                <p:outputLabel for="expiry_date" value="Expiry date:" />
+                <p:inputText id="expiry_date" value="#{editItemView.expiry_date}" required="true" label="expiry_date">
+                    <f:validateLength minimum="4" />
+                    <p:ajax update="expiry_date" event="keyup" />
+                </p:inputText>
+                <p:message for="expiry_date" id="msgexpiry_date" display="icon" />
+
+            </h:panelGrid>
+
+            <p:commandButton value="Save" update="panel" action="#{editItemView.save}" icon="pi pi-check" />
+        </p:panel>
+    </h:form>
+</h:body>
+</html>
