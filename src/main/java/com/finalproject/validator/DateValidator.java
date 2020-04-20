@@ -7,13 +7,12 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class DateValidator {
 
     @FacesValidator
-    public class ItemValidator implements Validator {
+    public class validator implements Validator {
         private String regex = "^([0-2][0-9]|(3)[0-1])(/)(((0)[0-9])|((1)[0-2]))(/)\\d{4}$";
 
 
